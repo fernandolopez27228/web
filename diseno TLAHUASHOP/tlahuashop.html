@@ -1,0 +1,94 @@
+<!doctype html>
+<head>
+<title>TLAHUASHOP</title>
+</head>
+<html>
+<body bgcolor="GREEN">
+<font face="Arial"size"15"></font>
+<a href="acercade.html"><img src="acerca de.jpg" width="250" height="100"></a>
+<a href="GALERIA.html"><img src="GALERIA.jpg" width="250" height="100"></a>
+<a href="FORMULARIO.html"><img src="formulariooo.jpeg" width="250" height="100"></a>
+<h1><strong><center>TLAHUASHOP!!</center></strong></h1>
+<center>
+<!-- Copiar dentro del tag BODY -->
+
+<script language="JavaScript">
+
+// By Mike Hall
+
+var NS4 = (document.layers);
+var IE4 = (document.all);
+
+var win = window; // Con frames usar top.nombre.window;
+var n = 0;
+
+function findInPage(str) {
+
+var txt, i, found;
+
+if (str == "")
+return false;
+
+// Find next occurance of the given string on the page, wrap around to the
+// start of the page if necessary.
+
+if (NS4) {
+
+// Look for match starting at the current point. If not found, rewind
+// back to the first match.
+
+if (!win.find(str))
+while(win.find(str, false, true))
+n++;
+else
+n++;
+
+// If not found in either direction, give message.
+
+if (n == 0)
+alert("Not found.");
+}
+
+if (IE4) {
+txt = win.document.body.createTextRange();
+
+// Find the nth match from the top of the page.
+
+for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) {
+txt.moveStart("character", 1);
+txt.moveEnd("textedit");
+}
+
+// If found, mark it and scroll it into view.
+
+if (found) {
+txt.moveStart("character", -1);
+txt.findText(str);
+txt.select();
+txt.scrollIntoView();
+n++;
+}
+
+// Otherwise, start over at the top of the page and find first match.
+
+else {
+if (n > 0) {
+n = 0;
+findInPage(str);
+}
+
+// Not found anywhere, give message.
+
+else
+alert("Not found.");
+}
+}
+
+return false;
+}
+
+</script>
+
+<marquee><h1>Bienvenido A La Tienda TLAHUASHOP!!</h1></marquee>
+</body>
+</html>
